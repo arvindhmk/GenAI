@@ -1,0 +1,221 @@
+Instructions:
+
+Generate Automation test script using selenium latest version with java for the web application url:https://www.abhibus.com
+Generate only 2 scenarios one for Positive and one Negative Scenario
+Use ID as preferred element locator if ID do not have numeric value
+Use Name and Xpath or locating webelements and not CSS.
+To locate Webelements with Xpath use attribute values and text.
+Wait Strategy - Explicit Wait only
+Use the below html DOM structure
+
+<div class="container landscape fixed" style="flex-direction:row;justify-content:flex-start;align-items:normal;align-content:flex-start;padding:0;flex-wrap:wrap;margin-top:0px"><div class="container search-form landscape fixed" style="flex-direction:row;justify-content:flex-start;align-items:center;align-content:flex-start;flex-wrap:wrap;column-gap:2px" id="search-container"><div class="source-input-wrapper col auto m5" style="width:26%" id="search-from"><div class="container  auto-complete " style="flex-direction:row;justify-content:flex-start;align-items:normal;align-content:flex-start;flex-wrap:wrap"><div class="container  " style="flex-direction:row;justify-content:flex-start;align-items:normal;align-content:flex-start;flex-wrap:wrap"><div class="container text-input input-wrapper light underlined neutral md rounded-md   " style="flex-direction:column;justify-content:flex-start;align-items:normal;align-content:flex-start;flex-wrap:wrap"><div class="container form-control   " style="flex-direction:row;justify-content:space-between;align-items:center;align-content:center;flex-wrap:wrap;column-gap:0.25rem"><div class="input-prefix col auto"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" style="vertical-align:middle" class="text-neutral-500"><path fill="currentColor" fill-rule="evenodd" d="M19.953 19.503a.334.334 0 0 1 .022.297.317.317 0 0 1-.417.175l-5.923-2.542a.329.329 0 0 1-.192-.26l-.542-4.299h-1.805l-.54 4.279a.324.324 0 0 1-.194.28l-5.92 2.542a.314.314 0 0 1-.269-.011.329.329 0 0 1-.138-.438l7.68-15.349a.314.314 0 0 1 .566 0l7.672 15.326ZM11.725 7.908h.548l-.274-2.163-.275 2.163Zm.633.676h-.718l-.373 2.942h1.463l-.372-2.942Z" clip-rule="evenodd"></path></svg></div><div class=" col"><input type="text" placeholder="Leaving From" tabindex="0" value=""></div></div></div></div></div><div class="container swap-route-wrapper " style="flex-direction:row;justify-content:center;align-items:center;align-content:flex-start;flex-wrap:wrap" id="bi-direction"><svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="none" viewBox="0 0 24 24" class="text-neutral-500"><path fill="currentColor" fill-rule="evenodd" d="M14.64 5.248a.748.748 0 0 1 1.061.008l4.088 4.168a.756.756 0 0 1-.535 1.282H6.83a.752.752 0 0 1-.75-.753c0-.416.336-.753.75-.753h10.632l-2.83-2.887a.756.756 0 0 1 .008-1.065ZM9.368 18.815a.748.748 0 0 1-1.061-.009L4.22 14.638a.755.755 0 0 1 .535-1.282h12.423c.414 0 .75.338.75.754a.752.752 0 0 1-.75.753H6.546l2.83 2.886a.755.755 0 0 1-.008 1.066Z" clip-rule="evenodd"></path></svg></div></div><div class="destination-input-wrapper col auto m6" style="width:26%" id="search-to"><div class="container bd-neutral-80 auto-complete " style="flex-direction:row;justify-content:flex-start;align-items:normal;align-content:flex-start;flex-wrap:wrap"><div class="container  " style="flex-direction:row;justify-content:flex-start;align-items:normal;align-content:flex-start;flex-wrap:wrap"><div class="container text-input input-wrapper light underlined neutral md rounded-md   " style="flex-direction:column;justify-content:flex-start;align-items:normal;align-content:flex-start;flex-wrap:wrap"><div class="container form-control   " style="flex-direction:row;justify-content:space-between;align-items:center;align-content:center;flex-wrap:wrap;column-gap:0.25rem"><div class="input-prefix col auto"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" style="vertical-align:middle" class="text-neutral-500"><path fill="currentColor" d="M17.26 5.111A7.132 7.132 0 0 0 12.186 3c-1.912 0-3.714.75-5.075 2.111A7.132 7.132 0 0 0 5 10.186c0 3.066 2.02 5.852 4.92 6.8l2.266 3.925 2.265-3.925a7.074 7.074 0 0 0 3.509-2.528 7.117 7.117 0 0 0 1.41-4.272c0-1.911-.749-3.713-2.11-5.074ZM13.47 15.7l-1.25 2.148-1.246-2.148-.31-.076a5.68 5.68 0 0 1-4.113-5.437c0-1.497.588-2.91 1.656-3.979a5.594 5.594 0 0 1 3.979-1.655 5.61 5.61 0 0 1 3.979 1.643 5.594 5.594 0 0 1 1.655 3.991c0 1.21-.404 2.418-1.137 3.4a5.638 5.638 0 0 1-2.906 2.037l-.307.076Z"></path><path fill="currentColor" d="M16.235 10.228a4.049 4.049 0 1 1-8.097 0 4.049 4.049 0 0 1 8.097 0Z"></path></svg></div><div class=" col"><input type="text" placeholder="Going To" tabindex="0" value=""></div></div></div></div></div></div><div class="journey-date-input-wrapper col" style="width:33.5%" id="jaurney-date"><div class="container date-input " style="flex-direction:column;justify-content:flex-start;align-items:center;align-content:center;flex-wrap:wrap" tabindex="-1"><div class="container text-input input-wrapper light text neutral md rounded-md   " style="flex-direction:column;justify-content:flex-start;align-items:normal;align-content:flex-start;flex-wrap:wrap"><div class="container form-control   " style="flex-direction:row;justify-content:space-between;align-items:center;align-content:center;flex-wrap:wrap;column-gap:0.25rem"><div class="input-prefix col auto"><h3 class="text-sm text-neutral-500" style="position:absolute;left:8px;top:5px;font-size:12px">Departure</h3><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="none" viewBox="0 0 24 24" style="color:inherit;vertical-align:middle" class="text-neutral-500"><path fill="currentColor" d="M15.694 5.781V4.578A.585.585 0 0 0 15.111 4a.585.585 0 0 0-.583.578v1.157H9.472V4.578A.585.585 0 0 0 8.889 4a.585.585 0 0 0-.584.578v1.203c-2.1.193-3.119 1.434-3.274 3.277a.389.389 0 0 0 .389.409h13.16c.225 0 .412-.193.389-.409-.156-1.843-1.175-3.084-3.275-3.277ZM18.222 10.625H5.778a.777.777 0 0 0-.778.771v4.75c0 2.313 1.167 3.855 3.889 3.855h6.222c2.722 0 3.889-1.542 3.889-3.855v-4.75a.777.777 0 0 0-.778-.771ZM9.83 17.079c-.039.03-.078.07-.117.093a.592.592 0 0 1-.14.069.498.498 0 0 1-.14.046c-.054.008-.1.016-.155.016a.78.78 0 0 1-.296-.062.804.804 0 0 1-.256-.162.807.807 0 0 1-.226-.547c0-.201.086-.401.226-.548a.804.804 0 0 1 .256-.162.75.75 0 0 1 .591 0 .592.592 0 0 1 .14.07c.04.03.078.061.117.092.14.147.226.347.226.548 0 .2-.086.4-.226.547Zm0-2.699a.822.822 0 0 1-.552.224.822.822 0 0 1-.552-.224.807.807 0 0 1-.226-.547c0-.2.086-.401.226-.548a.782.782 0 0 1 .847-.162.727.727 0 0 1 .257.162c.14.147.226.347.226.548 0 .2-.086.4-.226.547Zm2.722 2.699a.822.822 0 0 1-.552.224.822.822 0 0 1-.552-.224.807.807 0 0 1-.226-.547c0-.201.086-.401.226-.548.288-.285.816-.285 1.104 0 .14.147.226.347.226.548 0 .2-.086.4-.226.547Zm0-2.699-.116.093a.59.59 0 0 1-.14.07.5.5 0 0 1-.14.045c-.055.008-.102.016-.156.016a.822.822 0 0 1-.552-.224.807.807 0 0 1-.226-.547c0-.2.086-.401.226-.548a.727.727 0 0 1 .256-.162.782.782 0 0 1 .848.162c.14.147.226.347.226.548 0 .2-.086.4-.226.547Zm2.722 2.699a.821.821 0 0 1-.552.224.822.822 0 0 1-.552-.224.807.807 0 0 1-.226-.547c0-.201.086-.401.226-.548.288-.285.817-.285 1.104 0 .14.147.226.347.226.548 0 .2-.086.4-.226.547Zm0-2.699-.116.093a.59.59 0 0 1-.14.07.5.5 0 0 1-.14.045c-.055.008-.11.016-.156.016a.822.822 0 0 1-.552-.224.807.807 0 0 1-.226-.547c0-.2.086-.401.226-.548a.805.805 0 0 1 .257-.162.75.75 0 0 1 .59 0 .594.594 0 0 1 .14.07c.04.03.079.061.117.092.14.147.226.347.226.548 0 .2-.086.4-.226.547Z"></path></svg></div><div class=" col"><input type="text" tabindex="0" placeholder="Onward Journey Date" readonly="" style="padding:0" value="12/10/2025"></div><div class="input-suffix col auto"><a class="btn active light text neutral md rounded-md active button" role="button">Today</a><a class="btn active light text neutral md rounded-md active button" role="button" style="margin-left:0.2rem">Tomorrow</a></div></div></div></div></div><div class="btn-search-wrapper col auto m4" style="width:12.5%" id="search-button"><a class="btn btn-search text-neutral-0 dark filled primary lg rounded-xl inactive button" role="button" tabindex="0" style="display:flex;flex-direction:row-reverse;align-content:center;align-items:center;justify-content:center;justify-items:center;column-gap:0.25rem;width:100%;margin:0"><span><svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="none" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M8.712 6.23a.762.762 0 0 1 1.071-.02l5.486 5.25a.747.747 0 0 1 0 1.08l-5.486 5.25c-.3.287-.78.279-1.07-.02a.746.746 0 0 1 .018-1.06L13.652 12l-4.92-4.71a.746.746 0 0 1-.02-1.06Z" clip-rule="evenodd"></path></svg></span><span>Search</span></a></div></div></div>
+
+Context:
+You are a Automation expert for generating Selenium java Automation Test script
+
+Example:
+Refer the below example code to generate the Selenium Java Automation Test script
+
+package week2.day1;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import io.github.bonigarcia.wdm.WebDriverManager;
+public class CreateLead {
+	
+	public static void main(String[] args) {
+		
+		
+		// Step 0) Setup the chromedriver using webdrivermanager software
+		WebDriverManager.chromedriver().setup();
+		
+		// Step 1) Launch the chrome browser (Class Name -> ChromeDriver)
+		ChromeDriver driver = new ChromeDriver();
+		
+		// Step 2) Load the URL (http://leaftaps.com/opentaps/control/main) -> get
+		driver.get("http://leaftaps.com/opentaps");
+		
+		// Step 3) Maximize the chrome browser
+		driver.manage().window().maximize();
+		
+		// Step 4) Find the username and type the value (DemoSalesManager)
+		driver.findElement(By.id("username")).sendKeys("DemoSalesManager");
+		
+		// Step 5) Find the password and type the value (crmsfa)
+		driver.findElement(By.id("password")).sendKeys("crmsfa");	
+		
+		// Step 6) Find the login button and click
+		driver.findElement(By.className("decorativeSubmit")).click();
+		
+		// Step 7) Verify the title 
+		String title = driver.getTitle();
+		System.out.println(title);
+		
+		// Step 8) Click CRM/SFA link
+		driver.findElement(By.linkText("CRM/SFA")).click();
+		
+		// Step 9) Click Create Lead Link
+		driver.findElement(By.linkText("Create Lead")).click();
+		
+		// Step 10) Find the company name and type the company name
+		driver.findElement(By.id("createLeadForm_companyName")).sendKeys("TestLeaf");
+		
+		// Step 11) Find the first name and type your name
+		driver.findElement(By.id("createLeadForm_firstName")).sendKeys("Babu");
+
+		// Step 12) Find the last name and type your name
+		driver.findElement(By.id("createLeadForm_lastName")).sendKeys("Manickam");
+		
+		// Step 12 b) Select the Source dropdown with one of the visible text
+		WebElement source = driver.findElement(By.id("createLeadForm_dataSourceId"));
+		Select dd1 = new Select(source);
+		dd1.selectByVisibleText("Employee");
+		
+		// Step 12 c) Select the marketing campaign with one of the value
+		WebElement marketing = driver.findElement(By.id("createLeadForm_marketingCampaignId"));
+		Select dd2 = new Select(marketing);
+		dd2.selectByValue("9001");
+
+		// Step 13) Click Create Lead Button
+		driver.findElement(By.name("submitButton")).click();
+		
+		// Step 14) Print the new title
+		title = driver.getTitle();
+		System.out.println(title);
+
+	}
+
+}
+
+Persona
+
+- Act as Automation Test Engineer to generate the code
+- Act as senior tech architect to review the code
+
+Output Format
+
+- Generate a Java file
+
+
+package week2.day1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import java.time.Duration;
+
+public class AbhibusSearchTest {
+
+    public static void main(String[] args) {
+        
+        // Step 0: Setup ChromeDriver using WebDriverManager
+        WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+
+        // Step 1: Launch browser and open Abhibus
+        driver.get("https://www.abhibus.com");
+        driver.manage().window().maximize();
+
+        // Step 2: Create Explicit Wait instance
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+        // ===========================================================
+        // POSITIVE TEST CASE: Valid Source, Destination, and Date
+        // ===========================================================
+        try {
+            System.out.println("===== Starting Positive Test Case =====");
+
+            // Wait and enter 'Leaving From'
+            WebElement fromCity = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//input[@placeholder='Leaving From']")));
+            fromCity.click();
+            fromCity.sendKeys("Chennai");
+
+            // Wait and enter 'Going To'
+            WebElement toCity = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//input[@placeholder='Going To']")));
+            toCity.click();
+            toCity.sendKeys("Bangalore");
+
+            // Select Date (already prefilled, but ensure it's visible)
+            WebElement dateField = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//input[@placeholder='Onward Journey Date']")));
+            dateField.click();
+
+            // Click on 'Search' button
+            WebElement searchButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//span[text()='Search']/parent::a")));
+            searchButton.click();
+
+            // Wait for results or title change
+            wait.until(ExpectedConditions.or(
+                ExpectedConditions.urlContains("search"),
+                ExpectedConditions.titleContains("Bus Booking")
+            ));
+
+            String title = driver.getTitle();
+            System.out.println("Page Title after Search: " + title);
+
+            if (title.toLowerCase().contains("bus")) {
+                System.out.println("✅ Positive Test Passed: Search results displayed.");
+            } else {
+                System.out.println("❌ Positive Test Failed: Results not displayed as expected.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("❌ Exception in Positive Scenario: " + e.getMessage());
+        }
+
+        // ===========================================================
+        // NEGATIVE TEST CASE: Invalid Source & Destination
+        // ===========================================================
+        try {
+            System.out.println("\n===== Starting Negative Test Case =====");
+
+            // Navigate back to homepage
+            driver.navigate().to("https://www.abhibus.com");
+
+            // Wait and enter same value for Source & Destination
+            WebElement fromCity = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//input[@placeholder='Leaving From']")));
+            fromCity.click();
+            fromCity.clear();
+            fromCity.sendKeys("Chennai");
+
+            WebElement toCity = wait.until(ExpectedConditions.visibilityOfElementLocated(
+                By.xpath("//input[@placeholder='Going To']")));
+            toCity.click();
+            toCity.clear();
+            toCity.sendKeys("Chennai"); // Same as source
+
+            // Click Search
+            WebElement searchButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.xpath("//span[text()='Search']/parent::a")));
+            searchButton.click();
+
+            // Expect some error alert or same page (no navigation)
+            Thread.sleep(3000); // short static wait to observe
+
+            String currentUrl = driver.getCurrentUrl();
+            if (currentUrl.contains("search")) {
+                System.out.println("❌ Negative Test Failed: Search proceeded with invalid input.");
+            } else {
+                System.out.println("✅ Negative Test Passed: Search prevented for same locations.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("❌ Exception in Negative Scenario: " + e.getMessage());
+        }
+
+        // Step 3: Close browser
+        driver.quit();
+        System.out.println("\n===== Test Execution Completed =====");
+    }
+}
+
+

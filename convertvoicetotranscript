@@ -1,0 +1,11 @@
+model : whisper-large-v3
+file : Recording.m4a
+
+
+  response
+{
+    "text": " Hello, how are you?",
+    "x_groq": {
+        "id": "req_01k7v3cjjzf13rhh8tfnzgwaex"
+    }
+}

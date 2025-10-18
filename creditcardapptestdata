@@ -1,0 +1,45 @@
+{
+  "model": "openai/gpt-oss-120b",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Generate test data for credit card applications for different types of cards and conditions Generate positive test case only Generate 5 test case only"
+    }
+  ],
+  "temperature": 0.1
+}
+
+response
+{
+    "id": "chatcmpl-8d20dd78-a0e4-44a2-9b93-b66b11fced50",
+    "object": "chat.completion",
+    "created": 1760779309,
+    "model": "openai/gpt-oss-120b",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "Below are **5 positive (‑‑‑ approved) test cases** for credit‑card‑application processing.  \nEach case meets the typical eligibility rules for the indicated card type (age ≥ 18, income ≥ the card’s minimum, credit‑score ≥ the required threshold, etc.).  \n\n---\n\n## Test Cases – Tabular View\n\n| # | Application ID | Applicant (First / Last) | DOB (YYYY‑MM‑DD) | Age | SSN (masked) | Address (City, State) | Employment Status | Annual Income (USD) | Credit Score | Card Type | Requested Credit Limit (USD) | Application Date | Expected Outcome |\n|---|----------------|--------------------------|------------------|-----|--------------|-----------------------|-------------------|----------------------|--------------|----------|------------------------------|------------------|------------------|\n| 1 | APP‑001 | Maya Rogers | 1992‑04‑15 | 33 | ***‑**‑6789 | 742 Maple St, Seattle, WA | Full‑time (Software Engineer) | 115 000 | 782 | **Travel Rewards** (Premium) | 12 000 | 2025‑10‑01 | Approved |\n| 2 | APP‑002 | Luis Martinez | 1988‑11‑02 | 36 | ***‑**‑4321 | 389 Elm Ave, Austin, TX | Full‑time (Financial Analyst) | 92 000 | 755 | **Cash‑Back** (Standard) | 8 000 | 2025‑10‑02 | Approved |\n| 3 | APP‑003 | Priya Singh | 2000‑07‑19 | 25 | ***‑**‑2198 | 55 Pine Rd, Boston, MA | Full‑time (Marketing Coordinator) | 68 000 | 740 | **Student** (No‑Annual‑Fee) | 5 000 | 2025‑10‑03 | Approved |\n| 4 | APP‑004 | Ethan Kim | 1975‑02‑28 | 50 | ***‑**‑5543 | 128 Oak Blvd, Chicago, IL | Self‑employed (Consultant) | 150 000 | 801 | **Business** (Corporate) | 25 000 | 2025‑10‑04 | Approved |\n| 5 | APP‑005 | Sofia Alvarez | 1995‑09‑10 | 30 | ***‑**‑8876 | 410 Cedar Ln, Miami, FL | Full‑time (Registered Nurse) | 78 000 | 770 | **Rewards** (Points‑Based) | 10 000 | 2025‑10‑05 | Approved |\n\n**Key eligibility notes (all satisfied):**\n\n| Card Type | Minimum Age | Minimum Income | Minimum Credit Score |\n|-----------|-------------|----------------|----------------------|\n| Travel Rewards (Premium) | 21 | $100 000 | 750 |\n| Cash‑Back (Standard) | 18 | $45 000 | 700 |\n| Student (No‑Annual‑Fee) | 18 | $30 000 | 680 |\n| Business (Corporate) | 21 | $120 000 | 780 |\n| Rewards (Points‑Based) | 18 | $50 000 | 720 |\n\nAll five applicants meet or exceed the thresholds for their respective cards, so the **expected outcome is “Approved.”**  \n\n---\n\n## Test Cases – JSON Representation (for automated import)\n\n```json\n[\n  {\n    \"applicationId\": \"APP-001\",\n    \"applicant\": { \"firstName\": \"Maya\", \"lastName\": \"Rogers\" },\n    \"dateOfBirth\": \"1992-04-15\",\n    \"age\": 33,\n    \"ssn\": \"***-**-6789\",\n    \"address\": { \"street\": \"742 Maple St\", \"city\": \"Seattle\", \"state\": \"WA\" },\n    \"employmentStatus\": \"Full-time\",\n    \"occupation\": \"Software Engineer\",\n    \"annualIncome\": 115000,\n    \"creditScore\": 782,\n    \"cardType\": \"Travel Rewards\",\n    \"requestedCreditLimit\": 12000,\n    \"applicationDate\": \"2025-10-01\",\n    \"expectedOutcome\": \"Approved\"\n  },\n  {\n    \"applicationId\": \"APP-002\",\n    \"applicant\": { \"firstName\": \"Luis\", \"lastName\": \"Martinez\" },\n    \"dateOfBirth\": \"1988-11-02\",\n    \"age\": 36,\n    \"ssn\": \"***-**-4321\",\n    \"address\": { \"street\": \"389 Elm Ave\", \"city\": \"Austin\", \"state\": \"TX\" },\n    \"employmentStatus\": \"Full-time\",\n    \"occupation\": \"Financial Analyst\",\n    \"annualIncome\": 92000,\n    \"creditScore\": 755,\n    \"cardType\": \"Cash-Back\",\n    \"requestedCreditLimit\": 8000,\n    \"applicationDate\": \"2025-10-02\",\n    \"expectedOutcome\": \"Approved\"\n  },\n  {\n    \"applicationId\": \"APP-003\",\n    \"applicant\": { \"firstName\": \"Priya\", \"lastName\": \"Singh\" },\n    \"dateOfBirth\": \"2000-07-19\",\n    \"age\": 25,\n    \"ssn\": \"***-**-2198\",\n    \"address\": { \"street\": \"55 Pine Rd\", \"city\": \"Boston\", \"state\": \"MA\" },\n    \"employmentStatus\": \"Full-time\",\n    \"occupation\": \"Marketing Coordinator\",\n    \"annualIncome\": 68000,\n    \"creditScore\": 740,\n    \"cardType\": \"Student\",\n    \"requestedCreditLimit\": 5000,\n    \"applicationDate\": \"2025-10-03\",\n    \"expectedOutcome\": \"Approved\"\n  },\n  {\n    \"applicationId\": \"APP-004\",\n    \"applicant\": { \"firstName\": \"Ethan\", \"lastName\": \"Kim\" },\n    \"dateOfBirth\": \"1975-02-28\",\n    \"age\": 50,\n    \"ssn\": \"***-**-5543\",\n    \"address\": { \"street\": \"128 Oak Blvd\", \"city\": \"Chicago\", \"state\": \"IL\" },\n    \"employmentStatus\": \"Self-employed\",\n    \"occupation\": \"Consultant\",\n    \"annualIncome\": 150000,\n    \"creditScore\": 801,\n    \"cardType\": \"Business\",\n    \"requestedCreditLimit\": 25000,\n    \"applicationDate\": \"2025-10-04\",\n    \"expectedOutcome\": \"Approved\"\n  },\n  {\n    \"applicationId\": \"APP-005\",\n    \"applicant\": { \"firstName\": \"Sofia\", \"lastName\": \"Alvarez\" },\n    \"dateOfBirth\": \"1995-09-10\",\n    \"age\": 30,\n    \"ssn\": \"***-**-8876\",\n    \"address\": { \"street\": \"410 Cedar Ln\", \"city\": \"Miami\", \"state\": \"FL\" },\n    \"employmentStatus\": \"Full-time\",\n    \"occupation\": \"Registered Nurse\",\n    \"annualIncome\": 78000,\n    \"creditScore\": 770,\n    \"cardType\": \"Rewards\",\n    \"requestedCreditLimit\": 10000,\n    \"applicationDate\": \"2025-10-05\",\n    \"expectedOutcome\": \"Approved\"\n  }\n]\n```\n\nThese five records can be used directly in functional‑testing suites, data‑generation scripts, or as seed data for a mock credit‑card‑application system. All fields are valid, and each case should result in a successful approval.",
+                "reasoning": "The user wants test data for credit card applications for different types of cards and conditions. Positive test cases only, 5 test cases. Need to generate realistic data: applicant name, age, income, credit score, card type (e.g., rewards, travel, cash back, student, business), employment status, address, SSN (masked), etc. Ensure all conditions are valid (e.g., age >=18, income meets minimum, credit score high enough). Provide in a table or JSON. Also maybe include application ID. Provide varied card types. Provide positive test cases only. Should not include any disallowed content. It's fine.\n\nWill produce 5 test cases. Use realistic but fictional data. Provide fields: ApplicationID, ApplicantName, DateOfBirth, Age, SSN (masked), Address, EmploymentStatus, AnnualIncome, CreditScore, CardType, RequestedCreditLimit, ApplicationDate, ExpectedOutcome (Approved). Ensure positive.\n\nWill output in markdown table and maybe JSON. Provide both."
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "queue_time": 0.051566488,
+        "prompt_tokens": 96,
+        "prompt_time": 0.007808132,
+        "completion_tokens": 1889,
+        "completion_time": 3.881689881,
+        "total_tokens": 1985,
+        "total_time": 3.889498013
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_3a688838c3",
+    "x_groq": {
+        "id": "req_01k7va00kye4gt9fyempm8d7se"
+    },
+    "service_tier": "on_demand"
+}
